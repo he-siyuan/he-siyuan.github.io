@@ -1,44 +1,85 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Robert He</title>
-      <style> 
-        .grid_item {
-          width: 300px;
-          height: 300px;
-        }
-      </style>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      .grid {
+        width: 1100px;
+        padding: 16px;
+      }
+      .grid_item {
+        width: 300px;
+        height: 330px;
+        margin: 6px;
+        margin-bottom: 6px;
+        float: left;
+        opacity: 0.9;
+      }
+      .grid_item:hover {
+        opacity: 1;
+      }
+      .caption {
+        margin: 0;
+      }
+    </style>
   </head>
   <body>
-    <div>
+    <div class="grid">
       <div class="grid_item">
-        <img src="images_small/uscasj2small.jpg" alt="transmission lines 
-        running through red salt evaporation ponds">
-        <p><a href="images_full/uscasj2.jpg">full size</a></p>
+        <a href="images_full/uscasj2.jpg">
+          <img
+            src="images_small/uscasj2small.jpg"
+            alt="transmission lines 
+        running through red salt evaporation ponds"
+            style="width: 300px; height: 300px"
+          />
+        </a>
+        <p class="caption">37.505055, -122.040208</p>
       </div>
 
       <div class="grid_item">
-        <img src="images_small/jpibka2small.jpg" alt="solar panels forming diagonal lines">
-        <p><a href="images_full/jpibka2.jpg">full size</a></p>
+        <a href="images_full/jpibka2.jpg">
+          <img
+            src="images_small/jpibka2small.jpg"
+            alt="solar panels forming diagonal lines"
+            style="width: 300px; height: 300px"
+        /></a>
+        <p class="caption">35.851113, 140.724603</p>
       </div>
 
       <div class="grid_item">
-        <img src="images_small/sgsgtl1small.jpg" alt="colorful factory roofs in Singapore"
-      >
-        <p><a href="images_full/sgsgtl1.jpg">full size</a></p> 
+        <a href="images_full/sgsgtl1.jpg">
+          <img
+            src="images_small/sgsgtl1small.jpg"
+            alt="colorful factory roofs in Singapore"
+            style="width: 300px; height: 300px"
+        /></a>
+        <p class="caption">1.332789, 103.646611</p>
       </div>
 
       <div class="grid_item">
-        <img src="images_small/usazph7small.jpg" alt="colorful rectangular fields in Arizona"
-    >
-        <p><a href="images_full/usazph7.jpg">full size</a></p>
+        <a href="images_full/usazph7.jpg">
+          <img
+            src="images_small/usazph7small.jpg"
+            alt="colorful rectangular fields in Arizona"
+            style="width: 300px; height: 300px"
+        /></a>
+        <p class="caption">33.513280, -111.830150</p>
       </div>
-      
+
       <div class="grid_item">
-        <img src="images_small/jpkuku2small.jpg" alt="neat rectangular grid of fields" 
-    >
-        <p><a href="images_full/jpkuku2.jpg">full size</a></p>
+        <a href="images_full/jpkuku2.jpg">
+          <img
+            src="images_small/jpkuku2small.jpg"
+            alt="neat rectangular grid of fields"
+            style="width: 300px; height: 300px"
+        /></a>
+        <p class="caption">32.748637, 130.752842</p>
       </div>
     </div>
   </body>
