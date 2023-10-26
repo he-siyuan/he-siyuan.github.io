@@ -4,15 +4,19 @@
     <meta charset="utf-8" />
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Fira+Sans">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@900&display=swap">
     <title>Robert He</title>
     <style>
       body {
         padding: 0;
+        border: 0;
         margin: 0;
         font-family: 'Fira Sans', sans-serif;
+        display: flex;
       }
       .grid {
-        width: 1000px;
+        width: 940px;
         padding: 16px;
       }
       .grid_item {
@@ -29,9 +33,79 @@
       .caption {
         margin: 0;
       }
+      .header {
+        width: 100%;
+      }
+      .sidebar {
+        order: 2;
+        flex: 1;
+        background-color: rgb(205, 205, 205);
+        
+      }
+      .main {
+        width: 77%;
+        order: 1;
+        overflow: auto;
+      }
+      .sidebarsquared {
+        position: fixed;
+      }
+      .sidebar_image {
+        display: block;
+        width: 84%;
+        margin: 8%;
+        opacity: 0.9;
+      }
+      .sidebar_image:hover {
+        opacity: 1;
+      }
+      :root {
+      --frame-border-size: 0.1em;
+      --frame-height: 0.05em;
+      --frame-width: 0.05em;
+      }
+      .stamp-border {
+      border: var(--frame-border-size) solid rgb(30 41 59);
+      padding: var(--frame-height) var(--frame-width);
+      margin: 8%;
+      width: 82%;
+      }
+
+      .stamp-border__content {
+      background-color: rgb(205, 205, 205);
+      font-size: 100%;
+      margin: 8%;
+      width: 84%;
+      }
     </style>
   </head>
   <body>
+    
+    <div class="sidebar">
+      
+      <div class="sidebarsquared">
+        <p>
+          <a>
+            <div class="stamp-border">
+              <div class="stamp-border__content">
+                <p>
+                  Click on images for full size
+                </p>
+              </div>
+            </div>
+
+            <img class="sidebar_image" src="IMG_3782.JPG">
+            <img class="sidebar_image" src="IMG_3781.JPG">
+          </a>
+        </p>
+      </div>
+      
+    </div>
+    
+    <div class="main">
+    
+    <img class="header" src="IMG_3782.JPG" />
+
     <div class="grid">
       <div class="grid_item">
         <a href="images_full/uscasj2.jpg" target="_blank">
@@ -95,6 +169,8 @@
         <p class="caption">47.599668, -121.921324</p>
       </div>
 
+    </div>
+        
     </div>
   </body>
 </html>
