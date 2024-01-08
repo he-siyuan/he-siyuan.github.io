@@ -8,9 +8,6 @@
   margin-block-start: 0;
   object-fit: cover;
 }
-.grid-item{
-  
-}
 .bss-slides:focus{
  outline: 0;
 }
