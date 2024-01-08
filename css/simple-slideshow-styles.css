@@ -65,7 +65,7 @@ figcaption {
 .bss-slides figcaption a{
   color: #fff;    
 }
-.bss-next, .bss-prev{
+/*.bss-next, .bss-prev{
   color: #fff;
   position: fixed;
   background: #000;
@@ -84,13 +84,13 @@ figcaption {
   cursor: pointer;
   opacity: 1;
 }
-/*.bss-next{
+.bss-next{
   right: -1px;
   padding: 10px 5px 15px 10px;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
 }
-/*.bss-prev{
+.bss-prev{
   left: 0;
   padding: 10px 10px 15px 5px;
   border-top-right-radius: 3px;
