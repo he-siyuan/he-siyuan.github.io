@@ -6,9 +6,10 @@
   height: 100%;
   overflow: hidden;
   margin-block-start: 0;
+  object-fit: cover;
 }
 .grid-item{
-  object-fit: cover;
+  
 }
 .bss-slides:focus{
  outline: 0;
