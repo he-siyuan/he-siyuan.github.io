@@ -61,7 +61,7 @@ figcaption {
 }
 .bss-next, .bss-prev{
   color: #fff;
-  position: relative;
+  position: fixed;
   background: #000;
   background: rgba(0,0,0, .6);
   top: 50%;
