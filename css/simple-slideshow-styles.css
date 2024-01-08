@@ -1,6 +1,4 @@
 .bss-slides{
-  display: grid;
-  grid-template: 1fr / 1fr; 
   position: absolute;
   top: 0;
   left: 0;
@@ -10,8 +8,7 @@
   margin-block-start: 0;
 }
 .grid-item{
-  grid-area: 1 / span 1 / 1 / span 1;
-  justify-self: stretch;
+  object-fit: cover;
 }
 .bss-slides:focus{
  outline: 0;
