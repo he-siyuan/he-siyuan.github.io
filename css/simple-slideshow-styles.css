@@ -1,5 +1,5 @@
 body {
-  margin-block-start: 0;
+  
 }
 .bss-slides{
   position: absolute;
@@ -26,6 +26,8 @@ figcaption {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  margin-block: 0;
+  margin-inline: 0;
 }
 .bss-slides figure:first-child{
   position: relative;
