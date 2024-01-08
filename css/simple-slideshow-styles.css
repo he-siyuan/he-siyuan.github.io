@@ -1,6 +1,7 @@
 .bss-slides{
   display: grid;
   grid-template: 1fr / 1fr; 
+  justify-items: stretch;
   position: absolute;
   top: 0;
   left: 0;
