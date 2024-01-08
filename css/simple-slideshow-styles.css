@@ -20,6 +20,7 @@
   overflow: hidden;
   margin-block: 0;
   margin-inline: 0;
+  object-fit: cover;
 }
 .bss-slides figure:first-child{
   position: relative;
