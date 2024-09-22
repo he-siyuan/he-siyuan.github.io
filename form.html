@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Form Submission</title>
+    <title>Form Example</title>
 </head>
 <body>
-    <form action="display_inputs.php" method="post">
-        Name: <input type="text" name="name"><br>
-        Email: <input type="email" name="email"><br>
-        Message: <textarea name="message"></textarea><br>
+    <h1>Form</h1>
+    <form method="POST" action="/submit">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message"></textarea><br><br>
         <input type="submit" value="Submit">
     </form>
 </body>
