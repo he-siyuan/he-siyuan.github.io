@@ -3,252 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robert He | Photography</title>
+    <title>Robert He | About</title>
     <style>
         /* Basic Resets and Body Styling */
         body, html {
             margin: 0;
             padding: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #ffffff;
-            color: #111;
+            background-color: #f8f9fa;
+            color: #333;
             height: 100%;
+            overflow: hidden; /* Prevent body from scrolling */
         }
 
-        /* Main Layout Container - Flexbox */
-        .portfolio-container {
+        /* Main Layout Container */
+        .about-container {
             display: flex;
-            min-height: 100vh;
-            max-width: 1320px; /* Constrains width on large screens */
-            margin: 0 auto;     /* Centers the layout */
-            width: 100%;
+            height: 100vh;
         }
 
-        /* Sidebar Navigation */
-        .sidebar {
-            width: 280px;
-            padding: 4rem 2rem;
-            display: flex;
-            flex-direction: column;
-            flex-shrink: 0; /* Prevents sidebar from shrinking */
+        /* Left Scrolling Pane */
+        .left-pane {
+            width: 450px;
+            flex-shrink: 0;
+            height: 100%;
+            overflow-y: auto; /* Enable vertical scrolling */
+            padding: 4rem;
+            box-sizing: border-box; /* Include padding in width calculation */
+            background-color: #fff;
         }
 
-        .sidebar h1 {
-            font-size: 2rem;
-            font-weight: 600;
-            margin: 0 0 2rem 0;
-        }
-
-        .sidebar nav ul {
-            list-style: none;
-            padding: 0;
+        .header-info h1 {
+            font-size: 2.5rem;
             margin: 0;
+            font-weight: 600;
+        }
+        
+        .header-info p {
+            font-size: 1.1rem;
+            color: #555;
+            margin: 0.5rem 0;
         }
 
-        .sidebar nav li {
-            margin-bottom: 1rem;
+        .social-links {
+            margin: 1.5rem 0;
         }
 
-        .sidebar nav a {
+        .social-links a {
+            margin-right: 1rem;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .social-links a:hover svg {
+            fill: #888;
+        }
+        
+        .social-links svg {
+            width: 24px;
+            height: 24px;
+            fill: #333;
+            transition: fill 0.2s ease;
+        }
+        
+        .page-nav {
+             border-top: 1px solid #eee;
+             border-bottom: 1px solid #eee;
+             padding: 1.5rem 0;
+             margin: 1.5rem 0 2.5rem 0;
+        }
+        
+        .page-nav a {
             text-decoration: none;
             color: #333;
-            font-size: 1.1rem;
-            transition: color 0.2s ease-in-out;
+            font-weight: 500;
+            margin-right: 1.5rem;
+            padding: 0.5rem 0;
+            transition: color 0.2s ease;
         }
-
-        .sidebar nav a:hover,
-        .sidebar nav a.active {
+        
+        .page-nav a.active,
+        .page-nav a:hover {
             color: #888;
+            border-bottom: 2px solid #888;
+        }
+        
+        .about-text h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .about-text p, .about-text li {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #444;
+        }
+        
+        .about-text ul {
+            padding-left: 20px;
+            margin-top: 1rem;
         }
 
-        /* Main Content - Photo Grid */
-        .main-content {
-            flex-grow: 1; /* Allows content to take remaining space */
-            padding: 4rem 2rem;
-            overflow-y: auto; /* Enables scrolling for the grid area */
+        /* Right Slideshow Pane */
+        .slideshow-container {
+            flex-grow: 1;
+            height: 100vh;
+            position: relative; /* For absolute positioning of slides */
+            overflow: hidden;
+            background-color: #222;
         }
 
-        .photo-grid {
-            display: grid;
-            /* Creates a responsive grid that fills space, maxing out at 3 columns due to container width */
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem; /* Space between grid items */
-        }
-
-        /* Individual Photo Item and Hover Effect */
-        .photo-item {
-            position: relative;
-            cursor: pointer;
-            aspect-ratio: 1 / 1; /* Creates perfect squares */
-            background-color: #f0f0f0; /* Placeholder color */
-            overflow: hidden; /* Ensures overlay stays within the element */
-            display: block; /* Ensures the link takes up the full grid space */
-            text-decoration: none; /* Removes underline from links */
-        }
-
-        .photo-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Ensures image covers the square without distortion */
-            display: block;
-        }
-
-        .photo-item .overlay {
+        .slideshow-container .slide {
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            opacity: 0; /* Hidden by default */
-            transition: opacity 0.3s ease-in-out;
-            padding: 1rem;
-            text-align: center;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out; /* Fade transition */
         }
         
-        .overlay-title {
-            font-weight: bold;
-            font-size: 1.1rem;
-            margin-bottom: 0.25rem;
-        }
-        
-        .overlay-caption {
-            font-size: 0.9rem;
+        .slideshow-container .slide.active {
+            opacity: 1;
         }
 
-
-        .photo-item:hover .overlay {
-            opacity: 1; /* Fades in on hover */
-        }
-
-        /* Responsive adjustments for smaller screens */
-        @media (max-width: 768px) {
-            .portfolio-container {
+        /* Responsive adjustments */
+        @media (max-width: 900px) {
+            .about-container {
                 flex-direction: column;
-                 /* Undo centering for mobile */
-                max-width: none;
             }
-
-            .sidebar {
+            .left-pane {
                 width: 100%;
-                padding: 2rem 1.5rem;
-                height: auto;
-                border-bottom: 1px solid #eee;
+                height: auto; /* Auto height for content */
+                max-height: 50vh; /* Limit height on mobile */
+                border-bottom: 2px solid #eee;
             }
-            
-            .sidebar h1 {
-                margin-bottom: 1.5rem;
-            }
-            
-            .sidebar nav ul {
-                display: flex;
-                justify-content: space-between;
-            }
-            
-            .sidebar nav li {
-                 margin-bottom: 0;
-            }
-
-            .main-content {
-                padding: 2rem 1.5rem;
-            }
-            
-            .photo-grid {
-                gap: 1rem;
+            .slideshow-container {
+                height: 50vh; /* Take up remaining space */
             }
         }
+         @media (max-width: 600px) {
+            .left-pane {
+                padding: 2rem;
+            }
+         }
     </style>
 </head>
 <body>
 
-    <div class="portfolio-container">
-        <!-- Left Sidebar -->
-        <aside class="sidebar">
-            <h1>Robert He</h1>
-            <nav>
-                <ul id="nav-links">
-                    <li><a href="about.html" class="nav-link">about</a></li>
-                    <li><a href="#photos" class="nav-link active">photos</a></li>
-                    <li><a href="#maps" class="nav-link">maps</a></li>
-                    <li><a href="#miscellaneous" class="nav-link">miscellaneous</a></li>
-                </ul>
-            </nav>
-        </aside>
+    <div class="about-container">
+        <!-- Left Scrolling Content -->
+        <div class="left-pane">
+            <div class="header-info">
+                <h1>Robert He</h1>
+                <p>The University of Texas at Austin</p>
+                <p>he/him/his</p>
+                <p>robert [dot] he [at] utexas [dot] edu</p>
+            </div>
 
-        <!-- Right Content Area with Photo Grid -->
-        <main class="main-content">
-            <div class="photo-grid">
-                <!-- Each photo-item is now an <a> tag linking to a detail page -->
-                <a href="sub1.html" class="photo-item">
-                    <img src="https://placehold.co/400x400/AAB0AF/white?text=Landscape" alt="Description of photo 1">
-                    <div class="overlay">
-                       <div class="overlay-title">Mountain View</div>
-                       <div class="overlay-caption">Shot on Nikon Z6</div>
-                    </div>
+            <div class="social-links">
+                <a href="mailto:robert.he@utexas.edu" title="Email"><!-- SVG for mail icon -->
+                    <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm0 2l8 5 8-5H4zm0 12h16V8l-8 5-8-5v10z"/></svg>
                 </a>
-                <a href="project-2.html" class="photo-item">
-                    <img src="https://placehold.co/400x400/D4D8D7/white?text=Portrait" alt="Description of photo 2">
-                    <div class="overlay">
-                       <div class="overlay-title">City Portrait</div>
-                       <div class="overlay-caption">New York, 2023</div>
-                    </div>
+                <a href="#" title="GitHub"><!-- SVG for GitHub icon -->
+                    <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.15-1.11-1.46-1.11-1.46-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 0 1 .1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.4.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.72c0 .27.18.58.69.48A10 10 0 0 0 22 12 10 10 0 0 0 12 2Z"/></svg>
                 </a>
-                <a href="project-3.html" class="photo-item">
-                    <img src="https://placehold.co/400x400/C1C5C4/white?text=Architecture" alt="Description of photo 3">
-                    <div class="overlay">
-                        <div class="overlay-title">Brutalist Facade</div>
-                       <div class="overlay-caption">London, UK</div>
-                    </div>
-                </a>
-                <a href="project-4.html" class="photo-item">
-                    <img src="https://placehold.co/400x400/ADB1B0/white?text=Nature" alt="Description of photo 4">
-                    <div class="overlay">
-                        <div class="overlay-title">Forest Path</div>
-                       <div class="overlay-caption">Autumn Colors</div>
-                    </div>
-                </a>
-                <a href="project-5.html" class="photo-item">
-                    <img src="https://placehold.co/400x400/BEC2C1/white?text=Street" alt="Description of photo 5">
-                    <div class="overlay">
-                        <div class="overlay-title">Night Market</div>
-                       <div class="overlay-caption">Tokyo, Japan</div>
-                    </div>
-                </a>
-                <a href="project-6.html" class="photo-item">
-                    <img src="https://placehold.co/400x400/A8ACAB/white?text=Abstract" alt="Description of photo 6">
-                    <div class="overlay">
-                       <div class="overlay-title">Water Ripples</div>
-                       <div class="overlay-caption">Minimalist Abstract</div>
-                    </div>
-                </a>
-                 <a href="project-7.html" class="photo-item">
-                    <img src="https://placehold.co/400x400/E1E5E4/white?text=Travel" alt="Description of photo 7">
-                    <div class="overlay">
-                       <div class="overlay-title">Desert Dunes</div>
-                       <div class="overlay-caption">Sahara Adventure</div>
-                    </div>
-                </a>
-                 <a href="project-8.html" class="photo-item">
-                    <img src="https://placehold.co/400x400/B3B7B6/white?text=Wildlife" alt="Description of photo 8">
-                    <div class="overlay">
-                       <div class="overlay-title">Red Fox</div>
-                       <div class="overlay-caption">In the wild</div>
-                    </div>
-                </a>
-                 <a href="project-9.html" class="photo-item">
-                    <img src="https://placehold.co/400x400/C9CDCC/white?text=Food" alt="Description of photo 9">
-                    <div class="overlay">
-                       <div class="overlay-title">Fresh Pasta</div>
-                       <div class="overlay-caption">From the kitchen</div>
-                    </div>
+                 <a href="#" title="LinkedIn"><!-- SVG for LinkedIn icon -->
+                    <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-12 5v10h4V13c0-1.11.22-2.18.5-2.87.28-.69.75-1.17 1.5-1.17.61 0 1.08.29 1.43.87.35.58.57 1.34.57 2.2V18h4v-5.5c0-2.3-1.12-3.47-2.96-3.47-1.42 0-2.33.8-2.73 1.52h-.05V8H7zm-3 0h4v10H4V8zm2-4a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>
                 </a>
             </div>
-        </main>
+            
+            <nav class="page-nav">
+                <a href="photos.html">Photos</a>
+                <a href="#maps">Maps</a>
+                <a href="#misc">Miscellaneous</a>
+            </nav>
+            
+            <div class="about-text">
+                <h2>About</h2>
+                <p>
+                    Hey there! I'm Robert: an urbanist, a first-year BME student at the University of Texas at Austin, and a hobby photographer and cartographer. The bulk of my work is photographic: I love being able to take photos that capture a point in time, evoke a certain feeling, or frankly are just good to look at. I also like making maps, especially transit diagrams.
+                </p>
+                <p>I have a lot of hobbies:</p>
+                <ul>
+                    <li>I like languages; I have the IPA chart taped to my wall.</li>
+                    <li>I like birds. I'm trying to find better ways to take pictures of birds.
+                    <li>I like Wikipedia, as evidenced by my in-progress cladogram.</li>
+                    </li>
+                <p>Check out some of my stuff!</p>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Right Slideshow -->
+        <div class="slideshow-container">
+            <img src="slideshow/IMG_3917.JPG" alt="Slideshow Image 1" class="slide active">
+            <img src="slideshow/IMG_4086.JPG" alt="Slideshow Image 2" class="slide">
+            <img src="slideshow/IMG_4225.JPG" alt="Slideshow Image 3" class="slide">
+            <img src="slideshow/IMG_4414.JPG" alt="Slideshow Image 4" class="slide">
+            <img src="slideshow/IMG_4455.JPG" alt="Slideshow Image 5" class="slide">
+        </div>
     </div>
 
     <script>
@@ -287,4 +243,3 @@
 
 </body>
 </html>
-
