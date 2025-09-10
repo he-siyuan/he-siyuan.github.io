@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robert He | About</title>
+    <style>
+        /* Basic Resets and Body Styling */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            height: 100%;
+            overflow: hidden; /* Prevent body from scrolling */
+        }
+
+        /* Main Layout Container */
+        .about-container {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Left Scrolling Pane */
+        .left-pane {
+            width: 450px;
+            flex-shrink: 0;
+            height: 100%;
+            overflow-y: auto; /* Enable vertical scrolling */
+            padding: 4rem;
+            box-sizing: border-box; /* Include padding in width calculation */
+            background-color: #fff;
+        }
+
+        .header-info h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            font-weight: 600;
+        }
+        
+        .header-info p {
+            font-size: 1.1rem;
+            color: #555;
+            margin: 0.5rem 0;
+        }
+
+        .social-links {
+            margin: 1.5rem 0;
+        }
+
+        .social-links a {
+            margin-right: 1rem;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .social-links a:hover svg {
+            fill: #888;
+        }
+        
+        .social-links svg {
+            width: 24px;
+            height: 24px;
+            fill: #333;
+            transition: fill 0.2s ease;
+        }
+        
+        .page-nav {
+             border-top: 1px solid #eee;
+             border-bottom: 1px solid #eee;
+             padding: 1.5rem 0;
+             margin: 1.5rem 0 2.5rem 0;
+        }
+        
+        .page-nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            margin-right: 1.5rem;
+            padding: 0.5rem 0;
+            transition: color 0.2s ease;
+        }
+        
+        .page-nav a.active,
+        .page-nav a:hover {
+            color: #888;
+            border-bottom: 2px solid #888;
+        }
+        
+        .about-text h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .about-text p, .about-text li {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #444;
+        }
+        
+        .about-text ul {
+            padding-left: 20px;
+            margin-top: 1rem;
+        }
+
+        /* Right Slideshow Pane */
+        .slideshow-container {
+            flex-grow: 1;
+            height: 100vh;
+            position: relative; /* For absolute positioning of slides */
+            overflow: hidden;
+            background-color: #222;
+        }
+
+        .slideshow-container .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out; /* Fade transition */
+        }
+        
+        .slideshow-container .slide.active {
+            opacity: 1;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 900px) {
+            .about-container {
+                flex-direction: column;
+            }
+            .left-pane {
+                width: 100%;
+                height: auto; /* Auto height for content */
+                max-height: 50vh; /* Limit height on mobile */
+                border-bottom: 2px solid #eee;
+            }
+            .slideshow-container {
+                height: 50vh; /* Take up remaining space */
+            }
+        }
+         @media (max-width: 600px) {
+            .left-pane {
+                padding: 2rem;
+            }
+         }
+    </style>
+</head>
+<body>
+
+    <div class="about-container">
+        <!-- Left Scrolling Content -->
+        <div class="left-pane">
+            <div class="header-info">
+                <h1>Robert He</h1>
+                <p>UC BERKELEY COMPUTER SCIENCE</p>
+                <p>NOTION LABS</p>
+                <p>he/him/his</p>
+                <p>robert [at] berkeley [dot] edu</p>
+            </div>
+
+            <div class="social-links">
+                <a href="#" title="Email"><!-- SVG for mail icon -->
+                    <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm0 2l8 5 8-5H4zm0 12h16V8l-8 5-8-5v10z"/></svg>
+                </a>
+                <a href="#" title="GitHub"><!-- SVG for GitHub icon -->
+                    <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.15-1.11-1.46-1.11-1.46-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 0 1 .1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.4.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.72c0 .27.18.58.69.48A10 10 0 0 0 22 12 10 10 0 0 0 12 2Z"/></svg>
+                </a>
+                 <a href="#" title="LinkedIn"><!-- SVG for LinkedIn icon -->
+                    <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-12 5v10h4V13c0-1.11.22-2.18.5-2.87.28-.69.75-1.17 1.5-1.17.61 0 1.08.29 1.43.87.35.58.57 1.34.57 2.2V18h4v-5.5c0-2.3-1.12-3.47-2.96-3.47-1.42 0-2.33.8-2.73 1.52h-.05V8H7zm-3 0h4v10H4V8zm2-4a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>
+                </a>
+            </div>
+            
+            <nav class="page-nav">
+                <a href="portfolio.html">Photos</a>
+                <a href="#about" class="active">About</a>
+                <a href="#maps">Maps</a>
+                <a href="#misc">Miscellaneous</a>
+            </nav>
+            
+            <div class="about-text">
+                <h2>About</h2>
+                <p>
+                    Hey there! I'm Robert: an urbanist, a first-year BME student at the University of Texas at Austin, and a hobby photographer and cartographer. The bulk of my work is photographic: I love being able to take photos that capture a point in time, evoke a certain feeling, or frankly are just good to look at. I also like making maps, especially transit diagrams.
+                </p>
+                <p>I have a lot of hobbies:</p>
+                <ul>
+                    <li>I like languages; I have the IPA chart taped to my wall.</li>
+                    <li>I like birds. I'm trying to find better ways to take pictures of birds.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Right Slideshow -->
+        <div class="slideshow-container">
+            <img src="slideshow/IMG_3917.JPG" alt="Slideshow Image 1" class="slide active">
+            <img src="slideshow/IMG_4086.JPG" alt="Slideshow Image 2" class="slide">
+            <img src="https://placehold.co/1200x800/2E8B57/white?text=Image+3" alt="Slideshow Image 3" class="slide">
+            <img src="https://placehold.co/1200x800/CD5C5C/white?text=Image+4" alt="Slideshow Image 4" class="slide">
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slideshow-container .slide');
+            let currentSlide = 0;
+
+            function showNextSlide() {
+                // Fade out the current slide
+                slides[currentSlide].classList.remove('active');
+                
+                // Determine the next slide, looping back to the start
+                currentSlide = (currentSlide + 1) % slides.length;
+                
+                // Fade in the new slide
+                slides[currentSlide].classList.add('active');
+            }
+
+            // Change slide every 5 seconds
+            setInterval(showNextSlide, 5000);
+        });
+    </script>
+
+</body>
+</html>
