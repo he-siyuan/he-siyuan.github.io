@@ -177,7 +177,7 @@
             </div>
             
             <nav class="page-nav">
-                <a href="portfolio.html">Photos</a>
+                <a href="index.html">Photos</a>
                 <a href="#about" class="active">About</a>
                 <a href="#maps">Maps</a>
                 <a href="#misc">Miscellaneous</a>
@@ -207,22 +207,35 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const slides = document.querySelectorAll('.slideshow-container .slide');
-            let currentSlide = 0;
+            const navLinks = document.querySelectorAll('.nav-link');
+            const currentPath = window.location.pathname.split("/").pop();
 
-            function showNextSlide() {
-                // Fade out the current slide
-                slides[currentSlide].classList.remove('active');
-                
-                // Determine the next slide, looping back to the start
-                currentSlide = (currentSlide + 1) % slides.length;
-                
-                // Fade in the new slide
-                slides[currentSlide].classList.add('active');
-            }
+            navLinks.forEach(link => {
+                const linkPath = link.getAttribute('href');
 
-            // Change slide every 5 seconds
-            setInterval(showNextSlide, 5000);
+                // Make the link corresponding to the current page active
+                if (linkPath === currentPath || (currentPath === '' && linkPath === 'portfolio.html')) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+
+                link.addEventListener('click', function(event) {
+                    // Only prevent default for in-page anchor links (starting with #)
+                    if (link.getAttribute('href').startsWith('#')) {
+                        event.preventDefault();
+                        
+                        // Remove 'active' class from all links
+                        navLinks.forEach(l => l.classList.remove('active'));
+                        
+                        // Add 'active' class to the clicked link
+                        this.classList.add('active');
+                        
+                        console.log(`Handled in-page navigation to: ${this.getAttribute('href')}`);
+                    }
+                    // For links to other pages (like "about.html"), the browser will navigate as usual.
+                });
+            });
         });
     </script>
 
