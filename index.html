@@ -82,6 +82,8 @@
             aspect-ratio: 1 / 1; /* Creates perfect squares */
             background-color: #f0f0f0; /* Placeholder color */
             overflow: hidden; /* Ensures overlay stays within the element */
+            display: block; /* Ensures the link takes up the full grid space */
+            text-decoration: none; /* Removes underline from links */
         }
 
         .photo-item img {
@@ -181,21 +183,70 @@
         <!-- Right Content Area with Photo Grid -->
         <main class="main-content">
             <div class="photo-grid">
-                <!-- You can repeat this .photo-item block for each image -->
-                <div class="photo-item">
-                    <a href="sub1.html"><img src="images_small/jpibka2small.jpg" alt="Description of photo 1"></a>
+                <!-- Each photo-item is now an <a> tag linking to a detail page -->
+                <a href="sub1.html" class="photo-item">
+                    <img src="https://placehold.co/400x400/AAB0AF/white?text=Landscape" alt="Description of photo 1">
                     <div class="overlay">
                        <div class="overlay-title">Mountain View</div>
                        <div class="overlay-caption">Shot on Nikon Z6</div>
                     </div>
-                </div>
-                <div class="photo-item">
-                    <a href="sub1.html">><img src="images_small/jpkuku2small.jpg" alt="Description of photo 2"></a>
+                </a>
+                <a href="project-2.html" class="photo-item">
+                    <img src="https://placehold.co/400x400/D4D8D7/white?text=Portrait" alt="Description of photo 2">
                     <div class="overlay">
                        <div class="overlay-title">City Portrait</div>
                        <div class="overlay-caption">New York, 2023</div>
                     </div>
-                </div>
+                </a>
+                <a href="project-3.html" class="photo-item">
+                    <img src="https://placehold.co/400x400/C1C5C4/white?text=Architecture" alt="Description of photo 3">
+                    <div class="overlay">
+                        <div class="overlay-title">Brutalist Facade</div>
+                       <div class="overlay-caption">London, UK</div>
+                    </div>
+                </a>
+                <a href="project-4.html" class="photo-item">
+                    <img src="https://placehold.co/400x400/ADB1B0/white?text=Nature" alt="Description of photo 4">
+                    <div class="overlay">
+                        <div class="overlay-title">Forest Path</div>
+                       <div class="overlay-caption">Autumn Colors</div>
+                    </div>
+                </a>
+                <a href="project-5.html" class="photo-item">
+                    <img src="https://placehold.co/400x400/BEC2C1/white?text=Street" alt="Description of photo 5">
+                    <div class="overlay">
+                        <div class="overlay-title">Night Market</div>
+                       <div class="overlay-caption">Tokyo, Japan</div>
+                    </div>
+                </a>
+                <a href="project-6.html" class="photo-item">
+                    <img src="https://placehold.co/400x400/A8ACAB/white?text=Abstract" alt="Description of photo 6">
+                    <div class="overlay">
+                       <div class="overlay-title">Water Ripples</div>
+                       <div class="overlay-caption">Minimalist Abstract</div>
+                    </div>
+                </a>
+                 <a href="project-7.html" class="photo-item">
+                    <img src="https://placehold.co/400x400/E1E5E4/white?text=Travel" alt="Description of photo 7">
+                    <div class="overlay">
+                       <div class="overlay-title">Desert Dunes</div>
+                       <div class="overlay-caption">Sahara Adventure</div>
+                    </div>
+                </a>
+                 <a href="project-8.html" class="photo-item">
+                    <img src="https://placehold.co/400x400/B3B7B6/white?text=Wildlife" alt="Description of photo 8">
+                    <div class="overlay">
+                       <div class="overlay-title">Red Fox</div>
+                       <div class="overlay-caption">In the wild</div>
+                    </div>
+                </a>
+                 <a href="project-9.html" class="photo-item">
+                    <img src="https://placehold.co/400x400/C9CDCC/white?text=Food" alt="Description of photo 9">
+                    <div class="overlay">
+                       <div class="overlay-title">Fresh Pasta</div>
+                       <div class="overlay-caption">From the kitchen</div>
+                    </div>
+                </a>
             </div>
         </main>
     </div>
