@@ -192,8 +192,8 @@
                     <li>I like birds. I'm trying to find better ways to take pictures of birds.
                     <li>I like Wikipedia, as evidenced by my in-progress cladogram.</li>
                     </li>
-                <p>Check out some of my stuff!</p>
                 </ul>
+                <p>Check out some of my stuff!</p>
             </div>
         </div>
 
@@ -209,35 +209,22 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('.nav-link');
-            const currentPath = window.location.pathname.split("/").pop();
+            const slides = document.querySelectorAll('.slideshow-container .slide');
+            let currentSlide = 0;
 
-            navLinks.forEach(link => {
-                const linkPath = link.getAttribute('href');
+            function showNextSlide() {
+                // Fade out the current slide
+                slides[currentSlide].classList.remove('active');
+                
+                // Determine the next slide, looping back to the start
+                currentSlide = (currentSlide + 1) % slides.length;
+                
+                // Fade in the new slide
+                slides[currentSlide].classList.add('active');
+            }
 
-                // Make the link corresponding to the current page active
-                if (linkPath === currentPath || (currentPath === '' && linkPath === 'portfolio.html')) {
-                    link.classList.add('active');
-                } else {
-                    link.classList.remove('active');
-                }
-
-                link.addEventListener('click', function(event) {
-                    // Only prevent default for in-page anchor links (starting with #)
-                    if (link.getAttribute('href').startsWith('#')) {
-                        event.preventDefault();
-                        
-                        // Remove 'active' class from all links
-                        navLinks.forEach(l => l.classList.remove('active'));
-                        
-                        // Add 'active' class to the clicked link
-                        this.classList.add('active');
-                        
-                        console.log(`Handled in-page navigation to: ${this.getAttribute('href')}`);
-                    }
-                    // For links to other pages (like "about.html"), the browser will navigate as usual.
-                });
-            });
+            // Change slide every 5 seconds
+            setInterval(showNextSlide, 5000);
         });
     </script>
 
