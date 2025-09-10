@@ -19,6 +19,9 @@
         .portfolio-container {
             display: flex;
             min-height: 100vh;
+            max-width: 1320px; /* Constrains width on large screens */
+            margin: 0 auto;     /* Centers the layout */
+            width: 100%;
         }
 
         /* Sidebar Navigation */
@@ -67,7 +70,7 @@
 
         .photo-grid {
             display: grid;
-            /* Creates a responsive grid that fills space */
+            /* Creates a responsive grid that fills space, maxing out at 3 columns due to container width */
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 1.5rem; /* Space between grid items */
         }
@@ -78,8 +81,7 @@
             cursor: pointer;
             aspect-ratio: 1 / 1; /* Creates perfect squares */
             background-color: #f0f0f0; /* Placeholder color */
-            border-radius: 8px;
-            overflow: hidden; /* Ensures overlay stays within the rounded corners */
+            overflow: hidden; /* Ensures overlay stays within the element */
         }
 
         .photo-item img {
@@ -126,6 +128,8 @@
         @media (max-width: 768px) {
             .portfolio-container {
                 flex-direction: column;
+                 /* Undo centering for mobile */
+                max-width: none;
             }
 
             .sidebar {
@@ -268,3 +272,4 @@
 
 </body>
 </html>
+
