@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robert He | Birds</title>
+    <style>
+        /* Basic Resets and Body Styling */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #111;
+            height: 100%;
+        }
+
+        /* Main Layout Container - Flexbox */
+        .portfolio-container {
+            display: flex;
+            min-height: 100vh;
+            max-width: 1320px; /* Constrains width on large screens */
+            margin: 0 auto;     /* Centers the layout */
+            width: 100%;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 280px;
+            padding: 4rem 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0; /* Prevents sidebar from shrinking */
+        }
+
+        .sidebar h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin: 0 0 2rem 0;
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar nav li {
+            margin-bottom: 1rem;
+        }
+
+        .sidebar nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1.1rem;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .sidebar nav a:hover,
+        .sidebar nav a.active {
+            color: #888;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            flex-grow: 1;
+            padding: 4rem 2rem;
+            overflow-y: auto;
+        }
+
+        /* --- STYLES FOR PROJECT DETAIL PAGE --- */
+
+        .project-detail-content h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .project-detail-content .date {
+            color: #666;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .project-detail-content .description {
+            line-height: 1.6;
+            max-width: 70ch; /* Limits line length for better readability */
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .project-gallery img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 768px) {
+            .portfolio-container {
+                flex-direction: column;
+                max-width: none; /* Undo centering for mobile */
+            }
+
+            .sidebar {
+                width: 100%;
+                padding: 2rem 1.5rem;
+                height: auto;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .sidebar h1 {
+                margin-bottom: 1.5rem;
+            }
+            
+            .sidebar nav ul {
+                display: flex;
+                justify-content: space-between;
+            }
+            
+            .sidebar nav li {
+                 margin-bottom: 0;
+            }
+
+            .main-content {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="portfolio-container">
+        <!-- Left Sidebar (Same as portfolio page) -->
+        <aside class="sidebar">
+            <h1>Robert He</h1>
+            <nav>
+                <ul id="nav-links">
+                    <li><a href="index.html" class="nav-link">about</a></li>
+                    <li><a href="photos.html" class="nav-link active">photos</a></li>
+                    <li><a href="#maps" class="nav-link">maps</a></li>
+                    <li><a href="#miscellaneous" class="nav-link">miscellaneous</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Right Content Area with Project Details -->
+        <main class="main-content">
+            <div class="project-detail-content">
+                <h2>Birds</h2>
+                <span class="date">June 2025</span>
+                <p class="description">
+                    The University of Washington campus is incredibly photogenic.
+                </p>
+                <div class="project-gallery">
+                    <img src="washington/IMG_7352.JPG" alt="Fantasy map one">
+                    <img src="washington/IMG_7357.JPG" alt="Fantasy map two">
+                    <img src="washington/IMG_7362.JPG" alt="Fantasy map two">
+                    <img src="washington/IMG_7363.JPG" alt="Fantasy map two">
+                    <img src="washington/IMG_7364.JPG" alt="Fantasy map two">
+                    <img src="washington/IMG_7365.JPG" alt="Fantasy map two">
+                    <img src="washington/IMG_7366.JPG" alt="Fantasy map two">
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
