@@ -93,8 +93,8 @@
             max-width: 800px; /* Max width for the carousel */
             margin: 0 auto;
             overflow: hidden; /* This is crucial */
-            aspect-ratio: 4 / 3; /* Common aspect ratio for photos */
-            background-color: #eee;
+            aspect-ratio: 1 / 1; /* Set to square for your images */
+            background-color: #f0f0f0; /* Lighter background for letterboxing */
         }
 
         .carousel-slides {
@@ -112,7 +112,7 @@
         .carousel-slide img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Cover the area without distortion */
+            object-fit: contain; /* Display full image without cropping */
             display: block;
         }
 
@@ -152,7 +152,6 @@
         
         /* Style for disabled buttons */
         .carousel-btn:disabled {
-            display: none;
             opacity: 0.4;
             cursor: not-allowed;
             background-color: rgba(255, 255, 255, 0.6);
@@ -178,7 +177,7 @@
             <nav>
                 <ul>
                     <li><a href="index.html">about</a></li>
-                    <li><a href="portfolio.html" class="active">photos</a></li>
+                    <li><a href="photos.html" class="active">photos</a></li>
                     <li><a href="maps.html">maps</a></li>
                     <li><a href="miscellaneous.html">miscellaneous</a></li>
                 </ul>
@@ -192,7 +191,7 @@
                 <p class="date">October, 2024</p>
             </div>
             <p class="project-description">
-                Instagram-style carousel made for class.
+                Instagram-style carousel about staircases.
             </p>
 
             <!-- Image Carousel -->
@@ -269,4 +268,5 @@
     </script>
 </body>
 </html>
+
 
